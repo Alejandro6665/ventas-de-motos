@@ -1,106 +1,162 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Motorready - Encuentra tu moto ideal</title>
+  <meta charset="UTF-8">
+  <title>Formulario para ingreso a la facultad de fundadores de la comunidad LGBTQMAS</title>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500&family=Pacifico&display=swap" rel="stylesheet">
   <style>
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      font-family: 'Raleway', sans-serif;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
       color: white;
-    }
-
-    header {
-      background-color: #003399;
-      padding: 10px 20px;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
 
-    header h1 {
-      margin: 0;
-      color: white;
-      font-size: 1.8em;
-    }
-
-    .search-bar input {
-      padding: 8px;
-      border-radius: 5px;
-      border: none;
-    }
-
-    .main-content {
+    .container {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      width: 90%;
+      max-width: 500px;
       text-align: center;
-      padding: 100px 20px;
-      background-color: rgba(0, 0, 0, 0.5);
+      animation: fadeIn 1.2s ease-in-out;
     }
 
-    .main-content h2 {
-      margin-bottom: 30px;
-      font-size: 2.2em;
+    h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.6rem;
+      margin-bottom: 1.2rem;
     }
 
-    .filters select {
-      margin: 10px;
+    input, button, select {
+      width: 100%;
       padding: 10px;
-      border-radius: 5px;
+      margin: 10px 0;
       border: none;
-      width: 200px;
+      border-radius: 10px;
+      font-size: 1rem;
     }
 
-    .filters button {
-      padding: 10px 20px;
-      background-color: red;
+    button {
+      background: #ff4081;
       color: white;
-      border: none;
-      border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
+      transition: transform 0.2s ease;
     }
 
-    .top-bar a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
+    button:hover {
+      transform: scale(1.05);
     }
 
-    .top-bar {
-      display: flex;
-      gap: 15px;
+    .hidden {
+      display: none;
+    }
+
+    .spinner {
+      margin: 20px auto;
+      border: 6px solid rgba(255,255,255,0.3);
+      border-top: 6px solid #fff;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Motorready</h1>
-    <div class="search-bar">
-      <input type="text" placeholder="Busca tu moto ideal" />
-    </div>
-    <div class="top-bar">
-      <a href="#">Inicio</a>
-      <a href="#">Clasificados</a>
-      <a href="#">Financiamiento</a>
-      <a href="#" style="color: red;">PUBLICA GRATIS</a>
-    </div>
-  </header>
-
-  <div class="main-content">
-    <h2>ENCUENTRA TU MOTO IDEAL</h2>
-    <div class="filters">
-      <select><option>Todas las clases</option></select>
-      <select><option>Todas las marcas</option></select>
-      <select><option>Todas las familias</option></select>
-      <select><option>Todos los modelos</option></select>
-      <select><option>Todas las clasificadas</option></select>
-      <select><option>Todos los departamentos</option></select>
-      <br />
-      <button>BUSCAR</button>
-    </div>
+  <div class="container" id="loginBox">
+    <h1>Formulario para ingreso a la facultad de fundadores de la comunidad LGBTQMAS</h1>
+    <input type="text" id="username" placeholder="Usuario">
+    <input type="password" id="password" placeholder="Contraseña">
+    <button onclick="login()">Ingresar</button>
+    <p id="errorMsg" style="color: #ffb3b3; display:none;">Usuario o contraseña incorrecta</p>
   </div>
+
+  <div class="container hidden" id="quizBox">
+    <h1 id="question">Cargando pregunta...</h1>
+    <div id="options"></div>
+    <div class="spinner hidden" id="loader"></div>
+  </div>
+
+  <div class="container hidden" id="resultBox">
+    <h1>Eres 100% gay 🌈</h1>
+    <img src="https://files.oaiusercontent.com/file-AgU7e9sZzDHKUz7kL3F1zJeA?se=2025-04-07T18%3A06%3A38Z&sp=r&sv=2021-08-06&sr=b&rscd=inline&rsct=image/png&sig=6nM5msF%2BQD5nE92A2hIDmVO10DWBBMQOW1AcJzZQWm4%3D" alt="Gay Logo" style="width: 80%; max-width: 300px; margin: 1rem auto; display: block; border-radius: 20px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+    <p>Tienes el talento necesario para manejar tu propia página de citas para hombres, mi querido Pacho.</p>
+    <p>De parte de Don Jirdardo el de la Bamba 💅</p>
+  </div>
+
+  <script>
+    const questions = [
+      { q: "¿Alguna vez has querido salir del clóset?", a: ["Sí", "No", "Tal vez"] },
+      { q: "¿Te sientes incómodo si un hombre te mira fijamente?", a: ["No", "Sí", "Depende"] },
+      { q: "¿Te has sentido atraído por un amigo alguna vez?", a: ["Sí", "No", "Tal vez"] },
+      { q: "¿Sientes curiosidad por tener una cita con un hombre?", a: ["Sí", "No", "Un poco"] },
+      { q: "¿Te molesta que te confundan con alguien gay?", a: ["Para nada", "Sí", "Solo a veces"] },
+    ];
+
+    let currentQuestion = 0;
+
+    function login() {
+      const user = document.getElementById('username').value.toLowerCase();
+      const pass = document.getElementById('password').value.toLowerCase();
+      const errorMsg = document.getElementById('errorMsg');
+      if (user === 'pacho' && pass === 'quiero ser gay') {
+        document.getElementById('loginBox').classList.add('hidden');
+        document.getElementById('quizBox').classList.remove('hidden');
+        setTimeout(showQuestion, 500);
+      } else {
+        errorMsg.style.display = 'block';
+      }
+    }
+
+    function showQuestion() {
+      if (currentQuestion >= questions.length) {
+        document.getElementById('quizBox').classList.add('hidden');
+        document.getElementById('resultBox').classList.remove('hidden');
+        return;
+      }
+
+      const qData = questions[currentQuestion];
+      document.getElementById('question').innerText = qData.q;
+      const optionsDiv = document.getElementById('options');
+      optionsDiv.innerHTML = '';
+
+      qData.a.forEach(answer => {
+        const btn = document.createElement('button');
+        btn.innerText = answer;
+        btn.onclick = nextQuestion;
+        optionsDiv.appendChild(btn);
+      });
+    }
+
+    function nextQuestion() {
+      document.getElementById('options').classList.add('hidden');
+      document.getElementById('loader').classList.remove('hidden');
+      setTimeout(() => {
+        currentQuestion++;
+        document.getElementById('loader').classList.add('hidden');
+        document.getElementById('options').classList.remove('hidden');
+        showQuestion();
+      }, 1000);
+    }
+  </script>
 
 </body>
 </html>
